@@ -1,0 +1,23 @@
+.bannerBook {
+    background-image: url("../../../assets/bookPageBanner.jpg");
+    min-height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.banner .container {
+
+}
+.banner_text {
+  
+    display: flex;
+    width: 700px;
+    align-items: center;
+    text-align: center;
+    /* justify-content: center; */
+}
+.banner_text h1 {
+    color: rgb(152, 152, 152);
+    /* padding-top: 20%; */
+   
+}
