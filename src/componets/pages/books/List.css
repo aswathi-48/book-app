@@ -38,6 +38,7 @@
 .add_button {
     display: flex;
     justify-content: end;
+    cursor: pointer;
 }
 .add_button button {
     border: none;
@@ -47,4 +48,6 @@
     padding: 10px;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
+
 } 

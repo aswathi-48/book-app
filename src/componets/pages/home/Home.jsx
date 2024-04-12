@@ -20,6 +20,7 @@ const Home = () => {
 
 const {allBooks} = useContext(BookDataContext)
 
+const { review } = useContext(BookDataContext)
 
   return (
     <div className='home'>
@@ -62,7 +63,13 @@ const {allBooks} = useContext(BookDataContext)
             </div>
 
         <div>
-          <Slider />
+        {/* { review.map((items,index) =>{
+          console.log(items.'***************');
+              return(
+                <Slider data={items} key={index}/>
+              )
+              })} */}
+              <Slider />
         </div>
       </div>
     </div>

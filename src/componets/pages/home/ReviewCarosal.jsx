@@ -44,3 +44,48 @@ const Slider = () => {
 }
 
 export default Slider
+
+
+
+
+
+
+
+
+// import { Card, CardContent, Typography } from '@mui/material'
+// import React, { useContext, useEffect, useState } from 'react'
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import { Carousel } from 'react-responsive-carousel'
+// import './Slider.css'
+// import { BookDataContext } from '../BooksContext';
+
+// const Slider = ({value}) => {
+
+
+//   return (
+    
+//     <Carousel autoPlay infiniteLoop>
+//         <Card>
+//           <CardContent>
+//             <Typography sx={{ fontSize: 14 }} color="text.secondary">
+//             Books are a uniquely portable magic
+//             </Typography>
+//             <Typography variant="h5" component="div">
+//               {value.book_name}
+//             </Typography>
+//             <Typography sx={{ mb: 1.5 }} color="text.secondary">
+//               {value.user}
+//             </Typography>
+//             <Typography variant="body2">
+//              {value.value}
+//               <br />
+//               {'"a benevolent smile"'}
+//             </Typography>
+//           </CardContent>
+//         </Card>
+//     {/* ))} */}
+// </Carousel>
+//   )
+// }
+
+// export default Slider

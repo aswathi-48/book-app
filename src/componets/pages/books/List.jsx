@@ -12,20 +12,29 @@ import { Link } from 'react-router-dom';
 import CommonCard from '../home/Card/Card';
 
 
-const List = ({ setFilteredBooks }) => {
+const List = () => {
 
 
     const { allBooks } = useContext(BookDataContext)
-
-
 
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = () => {
         const filteredBooks = allBooks.filter(book => book.name.toLowerCase().includes(searchQuery.toLowerCase()));
-        setFilteredBooks(filteredBooks);
+        setSearchQuery(filteredBooks);
     };
+    const [products, setProducts] = useState(allBooks);
+    const [searchVal, setSearchVal] = useState("");
+    function handleSearchClick() {
+        if (searchVal === "") { setProducts(allBooks); return; }
+        const filterBySearch = allBooks.filter((book) => {
+            if (book => book.name.toLowerCase()
+                .includes(searchVal.toLowerCase())) { return book; }
+        })
+        setProducts(filterBySearch);
+    }
 
+    
 
     const [priceFilter, setPriceFilter] = useState('');
     const [ratingFilter, setRatingFilter] = useState('');
@@ -54,8 +63,8 @@ const List = ({ setFilteredBooks }) => {
             <div className="container">
                 <div className='search'>
                     <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }} >
-                        <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search" value={searchQuery}  onChange={e => setSearchQuery(e.target.value)} />
-                        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleSearch}>
+                        <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search" value={searchVal}  onChange={e => setSearchVal(e.target.value)} />
+                        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleSearchClick}>
                             <CiSearch />
                         </IconButton>
                     </Paper>
@@ -79,14 +88,14 @@ const List = ({ setFilteredBooks }) => {
                      
                     </div>
                     <div className="add_button">
-                            <button>Add New</button>
+                           <Link  to="/add"> <button>Add New</button></Link>
                         </div>
                     <div className="books_list">
 
                         {allBooks && allBooks.filter(filterBooks).map((items, index) => {
                             return (
                                 <div>
-                                    <Link to={`/bookView/${items._id}`} style={{ textDecoration: 'none' }}><CommonCard data={items} key={index} /></Link>
+                                    <CommonCard data={items} key={index} />
 
 
                                 </div>

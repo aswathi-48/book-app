@@ -4,6 +4,7 @@ import Layout from "../layout/Layout";
 import Home from "./home/Home";
 import List from "./books/List";
 import ViewBook from "./books/ViewBook";
+import AddBook from "./AddBook";
 
 
 const Pages = () => {
@@ -16,6 +17,7 @@ const Pages = () => {
             <Route  path="/" element={<Home/>}/>
             <Route path="/books" element={<List/>}/>
             <Route path='/bookView/:_id' element={<ViewBook/>}/>
+            <Route path="/add" element={<AddBook/>}/>
         </Routes>
      </Layout>
      </BrowserRouter>

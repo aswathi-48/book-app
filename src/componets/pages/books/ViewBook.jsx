@@ -17,6 +17,8 @@ const ViewBook = () => {
     const value = allBooks.find(item => item._id === parseInt(_id))
     console.log("valueee",value);
 
+
+        
     return (
         <div className='view_page'>
             <div className="container">
