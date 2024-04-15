@@ -1,8 +1,14 @@
-
+.slide .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .carousel .carousel-status {
     display: none !important;
 
 }
 .carousel .control-dots {
-    margin:-2px 0px
+    /* margin:-2px 0px */
+}
+ul{
+    padding: 0px;
 }

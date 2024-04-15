@@ -1,5 +1,5 @@
 
-export const Reviews = [
+export const reviews = [
     {
         _id: 1,
         user: 'John Doe',

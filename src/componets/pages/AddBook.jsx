@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { BookDataContext } from './BooksContext'
+import './AddBook.css'
 
 const AddBook = () => {
 
@@ -24,10 +25,10 @@ const AddBook = () => {
     console.log(data)
   }
   return (
-    <div>
-      <form action="">
+    <div className="form-container">
+      <form action="" onSubmit={handleSubmit}>
         <div>
-          <label>Upload Thumbnail : </label>
+          <label>Upload Image : </label>
           <input type="file" accept="image/gif, image/jpeg, image/png" />
         </div>
         <div>
@@ -59,7 +60,7 @@ const AddBook = () => {
             <label>Rating : </label>
             <input type="text"  onChange={(e) => data.star_rating = e.target.value} />
           </div>
-          <button type="submit" onClick={(e) => handleSubmit(e)}>submit</button>
+          <button type="submit">submit</button>
         </div>
       </form>
     </div>

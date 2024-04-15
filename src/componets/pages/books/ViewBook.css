@@ -1,7 +1,36 @@
 .view_page .container {
     max-width: 1200px;
     margin: 0 auto;
-display: flex;
-flex-direction: column;
-/* align-items: center; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+
 }
+.view_page_card {
+
+    margin: 2%;
+}
+.card_content {
+    padding-top: 60px !important;
+}
+.review .toggle_btn button {
+
+}
+.review .toggle_btn {
+    border: none;
+    outline: none;
+    background: none;
+   background-color: rgb(225, 159, 234);
+    margin-left: 2%;
+    color: white;
+}
+.review  {
+    margin: 9%;
+}
+.cardmedia_img {
+ max-width: 290px ;
+}
+.cardmedia_img img{
+    max-width: 100% ;
+    height: 100%;
+   }

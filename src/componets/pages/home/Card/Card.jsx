@@ -8,24 +8,21 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { BookDataContext } from '../../BooksContext';
 import { Link } from 'react-router-dom';
+import StarRating from '../../books/StarRating';
 
-const CommonCard = ({data,setAllBooks}) => {
+const CommonCard = ({data}) => {
  
-  const [item,setItem] = useState()
 
-  const {allbooks } = useContext(BookDataContext)
+const { deleteBook } = useContext(BookDataContext)
+  
 
-  const deleteData = () => {
-    if(item) {
-      const filterData = allbooks.filter((data) => data._id !=item)
-      setAllBooks(filterData)
-    }
-    deleteData()
-  }
+const handleDelete = () => {
+  deleteBook(data._id);
+};
 
   return (
-    <div>
-         <Card sx={{ maxWidth: 345 }}>
+    <div className='card'>
+         <Card sx={{ maxWidth: 355 }}>       
          <Link to={`/bookView/${data._id}`} style={{ textDecoration: 'none' }}>   <CardMedia
         sx={{ height: 390 }}
         image={data.image}
@@ -39,13 +36,13 @@ const CommonCard = ({data,setAllBooks}) => {
          {data.Author}
         </Typography>
         <Typography variant="h6" color="text.secondary">
-        ₹{data.price} &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; {data.star_rating}
+        {data.price} &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <StarRating rating={data.star_rating} readOnly />
+
         </Typography>
       </CardContent></Link>
         <CardActions>
           <Button size="small">Edit</Button>
-          <Button size="small" onClick={() => setItem(data._id)}>Delete</Button>
-          {/* <Button size="small">Delete</Button> */}
+          <Button size="small" onClick={handleDelete}>Delete</Button>
 
         </CardActions>
     </Card>
@@ -54,3 +51,4 @@ const CommonCard = ({data,setAllBooks}) => {
 }
 
 export default CommonCard
+

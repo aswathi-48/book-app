@@ -1,0 +1,23 @@
+.about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about_us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 100px;
+}
+.content {
+    padding-top: 50px;
+}
+.content p {
+    color: #5e5d5d;
+}
+.about_image {
+ width: 400px;
+ /* height: 100px; */
+ padding: 30px;
+}
+.about_image img {
+    width: 100%;
+}

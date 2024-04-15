@@ -9,3 +9,17 @@
     display: flex;
     column-gap: 40px;
 }
+.icons {
+    display: flex;
+    column-gap: 20px;
+}
+.icon {
+    background-color: rgb(85, 195, 254);
+    padding: 6px;
+    border-radius: 50%;
+    color: white;
+}
+.icons .icon:hover  {
+    background-color: white;
+    color: black;
+}

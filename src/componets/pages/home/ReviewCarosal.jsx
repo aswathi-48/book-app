@@ -1,25 +1,23 @@
+
+
 import { Card, CardContent, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel'
 import { Reviews } from '../../../util/ReviewApi';
 import './Slider.css'
+import { BookDataContext } from '../BooksContext';
 
 const Slider = () => {
 
-
-    const [reviews,setReviews] = useState([])
+const { allReview } = useContext(BookDataContext)
    
-      useEffect(()=>{
-        async function reviewApi(){
-            setReviews(Reviews)
-        }
-        reviewApi()
-      },[])
   return (
-    
-    <Carousel autoPlay infiniteLoop>
-    {reviews.map((review, index) => (
+    <div className='slide'>
+      <div className="container">
+
+ <Carousel autoPlay infiniteLoop>
+    {allReview.map((review, index) => (
         <Card>
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary">
@@ -40,52 +38,12 @@ const Slider = () => {
         </Card>
     ))}
 </Carousel>
+</div>
+
+    </div>
+   
   )
 }
 
 export default Slider
 
-
-
-
-
-
-
-
-// import { Card, CardContent, Typography } from '@mui/material'
-// import React, { useContext, useEffect, useState } from 'react'
-// import 'react-responsive-carousel/lib/styles/carousel.min.css';
-// import { Carousel } from 'react-responsive-carousel'
-// import './Slider.css'
-// import { BookDataContext } from '../BooksContext';
-
-// const Slider = ({value}) => {
-
-
-//   return (
-    
-//     <Carousel autoPlay infiniteLoop>
-//         <Card>
-//           <CardContent>
-//             <Typography sx={{ fontSize: 14 }} color="text.secondary">
-//             Books are a uniquely portable magic
-//             </Typography>
-//             <Typography variant="h5" component="div">
-//               {value.book_name}
-//             </Typography>
-//             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-//               {value.user}
-//             </Typography>
-//             <Typography variant="body2">
-//              {value.value}
-//               <br />
-//               {'"a benevolent smile"'}
-//             </Typography>
-//           </CardContent>
-//         </Card>
-//     {/* ))} */}
-// </Carousel>
-//   )
-// }
-
-// export default Slider

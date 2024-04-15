@@ -15,20 +15,14 @@ export const Footer = () => {
           <div className="footer_logo">
             <img src={logo} alt="logo" width={60}/>
           </div>
-          <div className="footer_list">
-            <ul>
-              <li><a href="/"> Home </a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/book">Book</a></li>
-            </ul>
-          </div>
-          {/* <div className="icons">
-          <FaFacebookF />
-          <FaInstagramSquare />
-          <FaTwitter />
-          <FaLinkedinIn />
+         
+          <div className="icons">
+          <FaFacebookF className='icon'/>
+          <FaInstagramSquare className='icon'/>
+          <FaTwitter className='icon'/>
+          <FaLinkedinIn className='icon' />
 
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

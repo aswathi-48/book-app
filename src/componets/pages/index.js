@@ -5,6 +5,8 @@ import Home from "./home/Home";
 import List from "./books/List";
 import ViewBook from "./books/ViewBook";
 import AddBook from "./AddBook";
+import About from "./About/About";
+import EditBook from "./EditBook";
 
 
 const Pages = () => {
@@ -18,6 +20,8 @@ const Pages = () => {
             <Route path="/books" element={<List/>}/>
             <Route path='/bookView/:_id' element={<ViewBook/>}/>
             <Route path="/add" element={<AddBook/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/BookEdit/:id" component={EditBook} />
         </Routes>
      </Layout>
      </BrowserRouter>
