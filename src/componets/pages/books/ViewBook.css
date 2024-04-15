@@ -11,7 +11,8 @@
     margin: 2%;
 }
 .card_content {
-    padding-top: 60px !important;
+    margin-left: 20% ;
+    margin-top: 42px;
 }
 .review .toggle_btn button {
 
@@ -25,7 +26,8 @@
     color: white;
 }
 .review  {
-    margin: 9%;
+    margin-left: 9%;
+    /* margin-left: 20%; */
 }
 .cardmedia_img {
  max-width: 290px ;
@@ -34,3 +36,13 @@
     max-width: 100% ;
     height: 100%;
    }
+
+   .css-exh2jq-MuiCardMedia-root  {
+    height: 100% !important;
+    padding-top: 25px !important;
+   }
+   .css-1oqv2c0-MuiPaper-root-MuiCard-root {
+    box-shadow: none !important;
+   }
+
+ 

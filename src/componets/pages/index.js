@@ -21,7 +21,7 @@ const Pages = () => {
             <Route path='/bookView/:_id' element={<ViewBook/>}/>
             <Route path="/add" element={<AddBook/>}/>
             <Route path="/about" element={<About/>}/>
-            <Route path="/BookEdit/:id" component={EditBook} />
+            <Route path="/BookEdit/:id" element={<EditBook/>} />
         </Routes>
      </Layout>
      </BrowserRouter>

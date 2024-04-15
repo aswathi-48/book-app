@@ -12,13 +12,12 @@ export const BookDataProvider = ({ children }) =>{
     const addBook = (data) => {
         setAllBooks(prev=> [...prev,data])
     }
+    console.log(allBooks);
 
-    const deleteBook = (id) => {
-        setAllBooks((prev) => prev.filter((book) => book._id !== id));
-      };
+  
 
     return (
-        <BookDataContext.Provider value={ { allBooks,setAllBooks,addBook,allReview,setAllReview,deleteBook} }>
+        <BookDataContext.Provider value={ { allBooks,setAllBooks,addBook,allReview,setAllReview} }>
             { children }
         </BookDataContext.Provider>
     )

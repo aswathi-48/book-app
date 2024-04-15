@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* custom styles */
+.css-tf7p94-MuiCardMedia-root {
+  background-size: contain !important;
+}

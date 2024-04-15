@@ -41,8 +41,8 @@ const { allReview } = useContext(BookDataContext)
               
             {topTwoBooks.map(item => (
                     <Link to={`/bookView/${item._id}`} key={item.id} style={{textDecoration:"none"}}> 
-                        <Card sx={{ maxWidth: 1200 } } className='main_card'>
-                          <div style={{height:240}}>
+                        <Card sx={{ Width: 100 } } className='main_card'>
+                          <div style={{height:390}}>
                           <CardMedia
                                 sx={{ height: 100 }}
                                 image={item.image}
@@ -53,14 +53,14 @@ const { allReview } = useContext(BookDataContext)
                           
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
-                                    {item.name}
+                                    {item.name} 
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
                                     {item.Author}
                                 </Typography> 
                             </CardContent>
                             <CardActions>
-                            <StarRating rating={item.star_rating} readOnly />
+                            <StarRating rating={item.star_rating}  />
 
                                 <Button size="small">₹{item.price}</Button>
                             </CardActions>

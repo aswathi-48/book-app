@@ -1,0 +1,33 @@
+.edit-form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+  }
+  
+  .edit-form-container label {
+    font-weight: bold;
+  }
+  
+  .edit-form-container input[type="text"],
+  .edit-form-container input[type="file"],
+  .edit-form-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit-form-container button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .edit-form-container button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

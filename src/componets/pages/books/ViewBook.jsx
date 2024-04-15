@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './ViewBook.css'
 import { BookDataContext } from '../BooksContext';
 import StarRating from './StarRating';
@@ -16,6 +16,7 @@ const ViewBook = ({ data }) => {
     const { allBooks, allReview, deleteBook} = useContext(BookDataContext)
     const { _id } = useParams()
     const [showReviews, setShowReviews] = useState(false); // State to track whether to show reviews or not
+    const navigate = useNavigate()
 
     const value = allBooks.find(item => item._id === parseInt(_id))
     console.log("valueee", value);
@@ -39,11 +40,8 @@ const ViewBook = ({ data }) => {
     };
 
 
-
-    // const handleDelete = () => {
-    //     deleteBook(data._id);
-    // };
-
+ 
+   
 
 
     return (
@@ -82,8 +80,7 @@ const ViewBook = ({ data }) => {
                                 </Typography>
                                 <StarRating rating={averageRating} onChange={handleRatingChange} />
                                 <CardActions>
-                                    <Button size="small">Edit</Button>
-                                    {/* <Button size="small" onClick={handleDelete}>Delete</Button> */}
+                                <Link to={`/BookEdit/${_id}`}><Button size="small">Edit</Button></Link>
                                 </CardActions>
                             </CardContent>
                             <   div className='review'>

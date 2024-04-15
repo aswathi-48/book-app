@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './List.css';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -9,43 +9,37 @@ import BannerBook from './BannerBook';
 import { BookDataContext } from '../BooksContext';
 import { Link } from 'react-router-dom';
 import CommonCard from '../home/Card/Card';
+import { IoMdAdd } from "react-icons/io";
+
 
 const List = () => {
-    const { allBooks } = useContext(BookDataContext);
-
+    const { allBooks, setAllBooks } = useContext(BookDataContext);
+    const [filteredBooks, setFilteredBooks] = useState([])
     const [searchQuery, setSearchQuery] = useState('');
     const [priceFilter, setPriceFilter] = useState('');
     const [ratingFilter, setRatingFilter] = useState('');
 
-    const filterBooks = (book) => {
-        // Check if the book matches the search query
-        const matchesSearchQuery = searchQuery ? 
-            (book.name && 
-            (book.name.toLowerCase().startsWith(searchQuery.toLowerCase()) ||
-            book.name.toLowerCase().includes(searchQuery.toLowerCase()))) : true;
-        
-        // Check if the book matches the price filter
-        let matchesPriceFilter = true;
-        if (priceFilter) {
-            if (priceFilter === 'below1000') {
-                matchesPriceFilter = book.price < 1000;
-            } else if (priceFilter === 'below500') {
-                matchesPriceFilter = book.price < 500;
-            } else if (priceFilter === 'below300') {
-                matchesPriceFilter = book.price < 300;
-            }
-        }
-    
-        // Check if the book matches the rating filter
-        let matchesRatingFilter = true;
+    const deleteBook = (id) => {
+        setAllBooks((prev) => prev.filter((book) => book._id !== id));
+      };
+    useEffect(() => {
+        console.log(allBooks, 'alll boks')
+        let items = allBooks;
         if (ratingFilter) {
-            matchesRatingFilter = book.star_rating === parseInt(ratingFilter);
+            items = allBooks.filter(book=> book.star_rating == ratingFilter)
         }
-        
+        if (priceFilter) {
+            items = items.filter(book=> book.price <= priceFilter)
+          }
+          console.log("pricee",items);
+        if (searchQuery) {
+            items = items.filter((book) =>
+            book.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+        }
+        setFilteredBooks(items)
+    }, [ratingFilter, priceFilter, searchQuery, deleteBook])
 
-        return matchesSearchQuery && matchesPriceFilter && matchesRatingFilter;
-    };
-    
     return (
         <div className='book_page'>
             <BannerBook />
@@ -70,8 +64,8 @@ const List = () => {
                         <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className='select'>
                             <option value="">All Prices</option>
                             <option value="below1000">Below 1000</option>
-                            <option value="below500">Below 500</option>
-                            <option value="below300">Below 300</option>
+                            <option value="500">Below 500</option>
+                            <option value="300">Below 300</option>
                         </select>
                         {/* Rating filter */}
                         <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)} className='select'>
@@ -85,12 +79,12 @@ const List = () => {
                     </div>
                     {/* Add button */}
                     <div className="add_button">
-                        <Link to="/add"><button>Add New</button></Link>
+                        <Link to="/add"><button><IoMdAdd className='icn'/>Add New </button></Link>
                     </div>
                     {/* Book list */}
                     <div className="books_list">
-                        {allBooks && allBooks.filter(filterBooks).map((book, index) => (
-                            <CommonCard key={index} data={book} />
+                        {filteredBooks.map((book, index) => (
+                            <CommonCard key={index} data={book} onDelete={deleteBook} />
                         ))}
                     </div>
                 </div>

@@ -6,7 +6,7 @@ const StarRating = ({ rating, onChange }) => {
     <Rating
       name="rating"
       value={rating}
-      onChange={(event, newValue) => {
+      onChange={(e, newValue) => {
         onChange(newValue);
       }}
     />

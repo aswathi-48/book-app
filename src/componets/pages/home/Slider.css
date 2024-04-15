@@ -7,8 +7,11 @@
 
 }
 .carousel .control-dots {
-    /* margin:-2px 0px */
+
 }
 ul{
     padding: 0px;
+}
+.css-bhp9pd-MuiPaper-root-MuiCard-root  {
+    box-shadow: none !important;
 }

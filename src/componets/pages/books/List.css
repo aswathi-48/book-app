@@ -37,9 +37,10 @@
 }
 .add_button {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     cursor: pointer;
 }
+
 .add_button button {
     border: none;
     outline: none;
