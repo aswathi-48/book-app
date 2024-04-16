@@ -7,6 +7,7 @@ import ViewBook from "./books/ViewBook";
 import AddBook from "./AddBook";
 import About from "./About/About";
 import EditBook from "./EditBook";
+import Login from "./loginForm/Login"
 
 
 const Pages = () => {
@@ -22,6 +23,7 @@ const Pages = () => {
             <Route path="/add" element={<AddBook/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/BookEdit/:id" element={<EditBook/>} />
+            <Route path="/login" element={<Login/>}/>
         </Routes>
      </Layout>
      </BrowserRouter>

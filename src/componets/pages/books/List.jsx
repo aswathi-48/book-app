@@ -7,9 +7,10 @@ import IconButton from '@mui/material/IconButton';
 import { CiSearch } from "react-icons/ci";
 import BannerBook from './BannerBook';
 import { BookDataContext } from '../BooksContext';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CommonCard from '../home/Card/Card';
 import { IoMdAdd } from "react-icons/io";
+import axios from 'axios';
 
 
 const List = () => {
@@ -18,27 +19,59 @@ const List = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [priceFilter, setPriceFilter] = useState('');
     const [ratingFilter, setRatingFilter] = useState('');
+//   const [name, setName] = useState('');
+// const {_id} =useParams()
+    
 
     const deleteBook = (id) => {
         setAllBooks((prev) => prev.filter((book) => book._id !== id));
-      };
-    useEffect(() => {
-        console.log(allBooks, 'alll boks')
-        let items = allBooks;
-        if (ratingFilter) {
-            items = allBooks.filter(book=> book.star_rating == ratingFilter)
-        }
-        if (priceFilter) {
-            items = items.filter(book=> book.price <= priceFilter)
-          }
-          console.log("pricee",items);
-        if (searchQuery) {
-            items = items.filter((book) =>
-            book.name.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-        }
-        setFilteredBooks(items)
-    }, [ratingFilter, priceFilter, searchQuery, deleteBook])
+    };
+    const storedToken  = window.localStorage.getItem("access_token")
+
+    const fetchBook = async () => {
+        const response = await axios.post('https://book-store-node-27us.onrender.com/api/v1/books/list',{},{
+            headers: {
+                Authorization: `Bearer ${storedToken}`
+            }
+        }).then((res) => console.log(res.data))
+        // console.log("dattaaaa ",response && response.data);
+
+        // console.log("fetchedData", JSON.stringify(response));
+
+        // if (response && response.data){
+        //     setFilteredBooks(response.data)
+        // }else{
+        //     console.log("error");
+        // }
+    }
+
+    useEffect(()=>{
+        fetchBook()
+        // const fetchData = async () => {
+        //     const data = await fetchBook()
+        //     console.log(data);
+        //   };
+        //   fetchData()
+    },[])
+
+    // useEffect(() => {
+    //     console.log(allBooks, 'alll boks')
+    //     let items = allBooks;
+    //     if (ratingFilter) {
+    //         items = allBooks.filter(book => book.star_rating == ratingFilter)
+    //     }
+    //     if (priceFilter) {
+    //         items = items.filter(book => book.price <= priceFilter)
+    //     }
+    //     console.log("pricee", items);
+    //     if (searchQuery) {
+    //         items = items.filter((book) =>
+    //             book.name.toLowerCase().includes(searchQuery.toLowerCase())
+    //         )
+    //     }
+    //     setFilteredBooks(items)
+    //     fetchBook()
+    // }, [ratingFilter, priceFilter, searchQuery, deleteBook])
 
     return (
         <div className='book_page'>
@@ -79,7 +112,7 @@ const List = () => {
                     </div>
                     {/* Add button */}
                     <div className="add_button">
-                        <Link to="/add"><button><IoMdAdd className='icn'/>Add New </button></Link>
+                        <Link to="/add"><button><IoMdAdd className='icn' />Add New </button></Link>
                     </div>
                     {/* Book list */}
                     <div className="books_list">
