@@ -19,40 +19,41 @@ const List = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [priceFilter, setPriceFilter] = useState('');
     const [ratingFilter, setRatingFilter] = useState('');
-//   const [name, setName] = useState('');
-// const {_id} =useParams()
-    
+    //   const [name, setName] = useState('');
+    // const {_id} =useParams()
+
 
     const deleteBook = (id) => {
         setAllBooks((prev) => prev.filter((book) => book._id !== id));
     };
-    const storedToken  = window.localStorage.getItem("access_token")
+    const storedToken = window.localStorage.getItem("access_token")
 
     const fetchBook = async () => {
-        const response = await axios.post('https://book-store-node-27us.onrender.com/api/v1/books/list',{},{
+        const response = await axios.post('https://book-store-node-27us.onrender.com/api/v1/books/list', {}, {
             headers: {
                 Authorization: `Bearer ${storedToken}`
+
             }
         }).then((res) => console.log(res.data))
-        // console.log("dattaaaa ",response && response.data);
-
-        // console.log("fetchedData", JSON.stringify(response));
-
-        // if (response && response.data){
-        //     setFilteredBooks(response.data)
-        // }else{
-        //     console.log("error");
-        // }
+        // console.log("dattaaaa ", response.data);
     }
+        // const myFunction =  JSON.stringify(fetchBook)
+        // console.log("valueeeee,myFunction",myFunction);
+    // const headers = { Authorization: `Bearer ${storedToken}`}
+    // const fetchBook = async () => {
+    //     const response = await axios.post('https://book-store-node-27us.onrender.com/api/v1/books/list',null, {headers}).then((res) => console.log(res.data))
+    //     console.log("dattaaaa ", response.data);
+    // }
 
-    useEffect(()=>{
+
+    useEffect(() => {
         fetchBook()
         // const fetchData = async () => {
         //     const data = await fetchBook()
         //     console.log(data);
         //   };
         //   fetchData()
-    },[])
+    }, [fetchBook])
 
     // useEffect(() => {
     //     console.log(allBooks, 'alll boks')

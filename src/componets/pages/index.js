@@ -8,6 +8,8 @@ import AddBook from "./AddBook";
 import About from "./About/About";
 import EditBook from "./EditBook";
 import Login from "./loginForm/Login"
+import Register from "./registerForm/Register";
+import { Form } from "formik";
 
 
 const Pages = () => {
@@ -24,6 +26,7 @@ const Pages = () => {
             <Route path="/about" element={<About/>}/>
             <Route path="/BookEdit/:id" element={<EditBook/>} />
             <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
         </Routes>
      </Layout>
      </BrowserRouter>

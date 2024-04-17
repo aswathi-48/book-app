@@ -1,0 +1,96 @@
+
+.register{
+    /* background-color: #98e5dd; */
+    width: 100%;
+    /* height: auto; */
+
+}
+.reg-main{
+    display: flex;
+    justify-content: center;
+    /* padding: 3px; */
+   
+
+}
+.reg-main-one{
+    background-color: white;
+   margin: 50px 0px;
+   border: 6px solid rgb(243, 236, 224);
+   /* height: 450px; */
+   margin-right: 40px;
+   width: 370px;
+
+
+}
+.reg-head{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    height: auto;
+   
+}
+.reg-head h4{
+    border-bottom: 1px solid rgb(243, 236, 224);
+    font-size: 24px;
+    font-family: inherit;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.reg-body{
+    display: flex;
+    justify-content: center;
+}
+.reg-body-cntnts input{
+    margin-left:20px;
+    padding: 20px 30px;
+}
+.reg-body-cntnt{
+    padding: 6px;
+    margin-top: 10px;
+    height: 25px;
+    width: 250px;
+    margin-left: 35px;
+    border-radius: 5px;
+    border: 1px solid rgb(236, 234, 234);
+}
+
+.reg-body-cntnts input{
+    width: 250px;
+    /* margin-left: 13px; */
+    /* margin-right: 20px; */
+
+    /* margin-right: 100px */
+
+}
+.reg-icon{
+   height: 12px;
+}
+.reg-body-cntnt input{
+    border: none;
+    margin-left: 3px;
+
+}
+.reg-btn{
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 35px;
+    width: 260px;
+    margin-left: 35px;
+
+    border: 1px solid rgb(236, 234, 234);
+    background-color: rgb(241, 55, 55);
+}
+.reg-btn button{
+    border: none;
+    background: none;
+    margin-left: 70px;
+    margin-top: 8px;
+    color: white;
+}
+.reg-para{
+    /* margin-top: 70px; */
+    margin-left: 88px;
+}
+.reg-link{
+    text-decoration: none;
+}
