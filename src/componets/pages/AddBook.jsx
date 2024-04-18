@@ -125,34 +125,43 @@ const AddBook = () => {
    published: "",
    price: "",
    language: "",
-    image:""
+   image:""
   })
 
   const storedToken = window.localStorage.getItem("access_token")
-
+const [image,setImage] =useState({})
 
 
   const handleInputChange = (e) => {
-    setFormValue(e.target.value,e.target.files)
+    setFormValue(e.target.value,e.target.files[0])
+ console.log("darsxdsx",formValue);
+  }
+
+  const handleImageChange =(e) => {
+    console.log("datat");
+    setImage (e.target.files[0])
+    console.log("fileess",image);
   }
 
 
   const { register, handleSubmit} = useForm();
 
-  const formData = new FormData();
-  // formData.append("_id",formValue._id);
-  formData.append("name",formValue.name);
-  formData.append("author",formValue.author);
-  formData.append("genre",formValue.genre);
-  formData.append("star_rating",formValue.star_rating);
-  formData.append("published",formValue.published);
-  formData.append("price",formValue.price);
-  formData.append("language",formValue.language);
-  formData.append("image",formValue.image)
+ 
 
   const onSubmit = async(data) =>{
     console.log(data);
-    await axios.post(' https://book-store-node-27us.onrender.com/api/v1/books/add',data, {
+    const formData = new FormData();
+    // formData.append("_id",formValue._id);
+    formData.append("name",data.name);
+    formData.append("author",data.author);
+    formData.append("genre",data.genre);
+    formData.append("star_rating",data.star_rating);
+    formData.append("published",data.published);
+    formData.append("price",data.price);
+    formData.append("language",data.language);
+    formData.append("image",data.image[0])
+    console.log(image,"imagee");
+    await axios.post(' https://book-store-node-27us.onrender.com/api/v1/books/add',formData, {
       headers: {
         Authorization: `Bearer ${storedToken}`
 
@@ -234,7 +243,7 @@ const AddBook = () => {
           {imagePreview && (
             <img src={imagePreview} alt="Preview" style={{ maxWidth: '100px', marginTop: '10px'}} />
           )} */}
-          <input type="file" filename='image' accept="image/gif, image/jpeg, image/png"  onChange={handleInputChange}  {...register("image")}/>
+          <input type="file" filename='image' accept="image/gif, image/jpeg, image/png"  onChange={handleImageChange} {...register("image")} />
         </div>
          
           <button type="submit">submit</button>
